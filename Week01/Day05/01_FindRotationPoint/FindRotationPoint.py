@@ -15,7 +15,10 @@ def rp(array,low,high):
 			return mid
 		low=mid+1
 	if (mid+1==high):
-		return high
+	    if(array[low-1]<array[high]):
+	        return 0
+	    else:
+	        return high
 	return -1
 
 
@@ -38,8 +41,8 @@ class Test(unittest.TestCase):
 
     def test_medium_list(self):
         actual = find_rotation_point(['grape', 'orange', 'plum',
-                                      'radish', 'apple'])
-        expected = 4
+                                      'radish', 'zebra'])
+        expected = 0
         self.assertEqual(actual, expected)
 
     def test_large_list(self):
